@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent master
     triggers {
         upstream (
             threshold: hudson.model.Result.SUCCESS,
