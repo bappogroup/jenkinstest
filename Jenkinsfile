@@ -1,7 +1,7 @@
 pipeline {
     triggers {
         upstream (
-            threshold: 'SUCCESS',
+            threshold: hudson.model.Result.SUCCESS,
             upstreamProjects: 'backendtrigger'
         )
     }
