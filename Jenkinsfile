@@ -4,11 +4,11 @@ pipeline {
         stage('Example Build') {
             steps {
                 script {
-                    SHOULD_DEPLOY = sh (
+                    CHANGED_FILES = sh (
                         script: 'git diff --name-only HEAD~2..HEAD | grep "abc/|README" ',
-                        returnStatus: true
+                        returnStdout: true
                     ) == 0
-                    echo "Build full flag: ${SHOULD_DEPLOY}"
+                    echo "Changed Files: ${CHANGED_FILES}"
                 }
             }
         }
