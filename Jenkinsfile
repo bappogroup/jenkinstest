@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Example Build') {
             steps {
-                sh 'echo helllloooo'
+                sh 'git diff --name-only HEAD~2..HEAD'
             }
         }
     }
