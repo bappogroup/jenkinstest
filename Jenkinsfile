@@ -14,7 +14,7 @@ pipeline {
         }
         stage('deploy API') {
             steps {
-                echo 'echo "value is ${DEPLOY_API}"'
+                echo "value is ${DEPLOY_API}"
             }
         }
     }
