@@ -7,8 +7,8 @@ pipeline {
                 script {
                     CHANGED_FILES = sh (
                         script: 'git diff --name-only HEAD~2..HEAD',
-                        returnStdout: true
-                    ).trim()
+                        returnStatus: true
+                    ) == 0
                     echo "Changed Files: ${CHANGED_FILES}"
                 }
             }
