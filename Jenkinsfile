@@ -1,4 +1,6 @@
-def DEPLOY_API = ' '
+def DEPLOY_API = false
+def DEPLOY_API_REGEX = "abc/"
+
 pipeline {
     agent any
     stages {
@@ -6,7 +8,7 @@ pipeline {
             steps {
                 script {
                     DEPLOY_API = sh (
-                        script: 'git diff --name-only HEAD~1..HEAD | grep "abc/" ',
+                        script: 'git diff --name-only HEAD~1..HEAD | egrep "${DEPLOY_API_REGEX}" ',
                         returnStatus: true
                     ) == 0
                 }
