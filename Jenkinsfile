@@ -1,16 +1,23 @@
-def CHANGED_FILES = ' '
+def DEPLOY_API = ' '
 pipeline {
     agent any
     stages {
         stage('Example Build') {
             steps {
                 script {
-                    CHANGED_FILES = sh (
+                    DEPLOY_API = sh (
                         script: 'git diff --name-only HEAD~2..HEAD | grep "abc/" ',
                         returnStatus: true
                     ) == 0
-                    echo "Changed Files: ${CHANGED_FILES}"
                 }
+            }
+        }
+        stage('deploy API') {
+            when {
+                environment name: 'DEPLOY_API', value: 'true'
+            }
+            steps {
+                echo 'deploying...'
             }
         }
     }
