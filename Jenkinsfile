@@ -13,6 +13,9 @@ pipeline {
             }
         }
         stage('deploy API') {
+            when {
+                expression { return DEPLOY_API }
+            }
             steps {
                 echo "value is ${DEPLOY_API}"
             }
