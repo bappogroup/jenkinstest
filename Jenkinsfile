@@ -1,3 +1,4 @@
+def CHANGED_FILES = ' '
 pipeline {
     agent any
     stages {
@@ -5,7 +6,7 @@ pipeline {
             steps {
                 script {
                     CHANGED_FILES = sh (
-                        script: 'git diff --name-only HEAD~2..HEAD | grep "abc/|file" ',
+                        script: 'git diff --name-only HEAD~2..HEAD',
                         returnStdout: true
                     ).trim()
                     echo "Changed Files: ${CHANGED_FILES}"
