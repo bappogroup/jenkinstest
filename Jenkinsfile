@@ -13,11 +13,8 @@ pipeline {
             }
         }
         stage('deploy API') {
-            when {
-                environment name: 'DEPLOY_API', value: 'true'
-            }
             steps {
-                echo 'deploying...'
+                echo 'echo "value is ${DEPLOY_API}"'
             }
         }
     }
