@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     DEPLOY_API = sh (
-                        script: 'git diff --name-only HEAD~2..HEAD | grep "abc/" ',
+                        script: 'git diff --name-only HEAD~1..HEAD | grep "abc/" ',
                         returnStatus: true
                     ) == 0
                 }
